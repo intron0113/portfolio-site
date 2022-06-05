@@ -1,6 +1,4 @@
 <template>
-  <!-- <v-app>
-    <v-main> -->
   <v-container>
     <v-row>
       <v-col
@@ -10,10 +8,9 @@
         sm="6"
         md="4"
         lg="4"
-        @click="selectedProduct = product"
         style="cursor: pointer"
+        @click="selectedProduct = product"
       >
-        <!-- <v-card justify="space-around"> -->
         <v-card class="mx-auto my-4" max-width="300">
           <v-row>
             <v-col cols="12">
@@ -37,31 +34,83 @@
               <v-divider class="my-2"></v-divider>
             </v-col>
           </v-row>
-          <!-- <img class="image icon icon-user" src="@/assets/topimage1.jpg" /> -->
         </v-card>
       </v-col>
     </v-row>
+    <!-- モーダルウィンド -->
     <div v-if="overlay" @click="selectedProduct = null">
       <v-overlay :value="overlay">
         <v-container>
           <v-row>
-            <v-col>
-              <v-card class="white" width="400">
-                <v-card-text class="black--text">
-                  <div v-text="selectedProduct.category"></div>
-                  <div class="text-h6" v-text="selectedProduct.product"></div>
-                  <div v-text="selectedProduct.use"></div>
-                  <v-divider class="grey lighten-2 my-2"></v-divider>
-                </v-card-text>
-                <v-card-actions class="justify-center">
-                  <v-btn
-                    color="success"
-                    class="ma-5"
-                    @click="selectedProduct = null"
-                  >
-                    close</v-btn
-                  >
-                </v-card-actions>
+            <v-col cols="12">
+              <v-card
+                class="always-show-scrollbar"
+                :height="bkPoint.cardHeight"
+                :width="bkPoint.cardWidth"
+              >
+                <v-row align-content="center">
+                  <v-col cols="12" sm="6">
+                    <v-card-title class="text-h4">
+                      {{ selectedProduct.product }}
+                    </v-card-title>
+                    <v-card-text class="v-text">
+                      <!-- {{ selectedProduct.category }} -->
+                      {{ selectedProduct.text }}
+                    </v-card-text>
+                    <v-card-subtitle class="text-h6">
+                      使用言語など
+                    </v-card-subtitle>
+                    <v-card-text class="v-text">
+                      {{ selectedProduct.useTec }}
+                    </v-card-text>
+                    <v-divider class="grey lighten-2 my-2"></v-divider>
+                    <v-col cols="3">
+                      <a :href="selectedProduct.github" style="color: inherit">
+                        <v-icon>mdi-github</v-icon>
+                        github
+                      </a>
+                    </v-col>
+                    <v-col cols="3">
+                      <a :href="selectedProduct.link" style="color: inherit">
+                        <v-icon>mdi-link-box-variant-outline</v-icon>
+                        siteLink
+                      </a>
+                    </v-col>
+                    <v-card-actions class="justify-center">
+                      <v-btn
+                        color="success"
+                        class="ma-5"
+                        @click="selectedProduct = null"
+                      >
+                        close</v-btn
+                      >
+                    </v-card-actions>
+                    <!-- <v-divider class="grey lighten-2 my-2"></v-divider> -->
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-img
+                      v-for="(item, i) in selectedProduct.items"
+                      :key="i"
+                      class="mt-4 mr-4"
+                      :src="item.src"
+                      max-height="400"
+                    />
+                    <!-- <v-carousel
+                      cycle
+                      hide-delimiters
+                      class="carousel-image pt-10 px-6"
+                    >
+                      <v-carousel-item
+                        v-for="(item, i) in selectedProduct.items"
+                        :key="i"
+                        :src="item.src"
+                        reverse-transition="fade-transition"
+                        transition="fade-transition"
+                      ></v-carousel-item>
+                    </v-carousel> -->
+                  </v-col>
+                  <v-col cols="12"> </v-col>
+                </v-row>
               </v-card>
             </v-col>
           </v-row>
@@ -69,8 +118,6 @@
       </v-overlay>
     </div>
   </v-container>
-  <!-- </v-main>
-  </v-app> -->
 </template>
 
 <script>
@@ -84,6 +131,25 @@ export default {
         product: 'Co-mpa',
         category: 'web app',
         use: 'Nuxt.js firebase',
+        text: '医療職に従事している際に、アウトプットの場がもっと身近にあればという悩みを抱えていました。解決策として、記事投稿サイトをきっかけにアウトプット学習を行えないかと考え記事投稿アプリを開発しました。ログイン機能、マークダウン記法による記事作成、タグ検索、全文検索機能を実装。今後もアップデートを行い、医療従事者のチーム医療の一端になれればと考えています。',
+        useTec:
+          'Nuxt.js,firebase/Authentication,firebase/Database,firebase/Storage,firebase/Hosting,algolia(検索用)',
+        link: 'https://compa-med.web.app/',
+        github: 'https://github.com/intron0113/compa-web',
+        items: [
+          {
+            src: require('@/assets/compa.jpg'),
+          },
+          {
+            src: require('@/assets/compa-login.jpg'),
+          },
+          {
+            src: require('@/assets/compa-post.jpg'),
+          },
+          {
+            src: require('@/assets/compa-mypage.jpg'),
+          },
+        ],
       },
       {
         id: '2',
@@ -112,6 +178,61 @@ export default {
     overlay() {
       return !!this.selectedProduct
     },
+    bkPoint() {
+      // $vuetify.breakpointでブレークポイントを取得
+      const bkPt = this.$vuetify.breakpoint
+      const point = {
+        name: bkPt.name,
+        cardHeight: 200,
+        titleLength: 10,
+        textLength: 15,
+      }
+      switch (bkPt.name) {
+        case 'xl':
+          point.titleLength = 30
+          point.textLength = 100
+          point.cardHeight = 450
+          point.cardWidth = 1080
+          point.imagedHeight = 250
+          point.imageWidth = 300
+          break
+        case 'lg':
+          point.titleLength = 20
+          point.textLength = 80
+          point.cardHeight = 400
+          point.cardWidth = 1080
+          point.imagedHeight = 250
+          point.imageWidth = 300
+          break
+        case 'md':
+          point.titleLength = 10
+          point.textLength = 60
+          point.cardHeight = 400
+          point.cardWidth = 860
+          point.imagedHeight = 250
+          point.imageWidth = 300
+          break
+        case 'sm':
+          point.titleLength = 10
+          point.textLength = 100
+          point.cardHeight = 400
+          point.cardWidth = 500
+          point.imagedHeight = 250
+          point.imageWidth = 300
+          break
+        case 'xs':
+          point.titleLength = 8
+          point.textLength = 100
+          point.cardHeight = 250
+          point.cardWidth = 300
+          point.imagedHeight = 250
+          point.imageWidth = 300
+          break
+        default:
+          break
+      }
+      return point
+    },
   },
 }
 </script>
@@ -132,5 +253,17 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+}
+.always-show-scrollbar {
+  overflow-y: scroll !important;
+}
+.carousel-image {
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+}
+.v-text {
+  letter-spacing: 0.2em;
+  line-height: 2rem;
 }
 </style>
