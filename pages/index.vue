@@ -32,7 +32,6 @@
     <section id="works">
       <v-col cols="12">
         <h2 class="headline font-weight-bold text-center my-16">WORKS</h2>
-        <!-- <ProductList /> -->
         <NewProduct />
       </v-col>
     </section>
