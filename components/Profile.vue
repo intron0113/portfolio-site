@@ -1,60 +1,72 @@
 <template>
   <div>
-    <v-container fluid>
-      <v-card width="100vw">
-        <!-- <v-card-title class="pa-5 justify-center display-1 font-italic">
-          自己紹介
-        </v-card-title> -->
+    <!-- <v-container> -->
+    <v-row>
+      <v-col cols="12">
+        <div class="con">
+          <v-card>
+            <!-- <v-card-title class="pa-5 justify-center display-1 font-italic">
+                自己紹介
+              </v-card-title> -->
 
-        <v-row justify="center" align-content="center">
-          <v-col cols="12" sm="5" md="5" align="center">
-            <v-row
-              justify="space-around"
-              align-content="center"
-              style="height: 100%"
-            >
-              <v-col cols="12">
-                <v-avatar class="icon-user" style="width: 120px; height: 120px">
-                  <img
-                    src="~/assets/topimage1.jpg"
-                    alt="PROFILE"
-                    style="object-fit: cover"
-                    class="image"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col cols="3">
-                <a href="https://github.com/intron0113">
-                  <v-icon x-large>mdi-github</v-icon>
-                </a>
-              </v-col>
-              <v-col cols="3">
-                <a href="https://twitter.com/yopiken13">
-                  <v-icon x-large>mdi-twitter</v-icon>
-                </a>
-              </v-col>
+            <v-row justify="center" align-content="center">
+              <v-col cols="12" sm="5" md="5" align="center">
+                <v-row
+                  justify="space-around"
+                  align-content="center"
+                  style="height: 100%"
+                >
+                  <v-col cols="12" class="mt-6">
+                    <v-avatar
+                      class="icon-user"
+                      style="width: 120px; height: 120px"
+                    >
+                      <img
+                        src="~/assets/topimage1.jpg"
+                        alt="PROFILE"
+                        style="object-fit: cover"
+                        class="image"
+                      />
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="3">
+                    <a href="https://github.com/intron0113">
+                      <v-icon x-large>mdi-github</v-icon>
+                    </a>
+                  </v-col>
+                  <v-col cols="3">
+                    <a href="https://twitter.com/yopiken13">
+                      <v-icon x-large>mdi-twitter</v-icon>
+                    </a>
+                  </v-col>
 
-              <!-- <IconUser
-                :image="/assets/topimage1.jpg"
-                style="width: 72px; height: 72px"
-              /> -->
-            </v-row>
-          </v-col>
-          <v-col cols="12" sm="6" md="6">
-            <v-list>
-              <v-list-item v-for="profile in profiles" :key="profile.content">
-                <v-list-item-content>
-                  <v-list-item-title
-                    ><v-icon>mdi-check</v-icon>
-                    {{ profile.content }}</v-list-item-title
+                  <!-- <IconUser
+                      :image="/assets/topimage1.jpg"
+                      style="width: 72px; height: 72px"
+                    /> -->
+                </v-row>
+              </v-col>
+              <v-col cols="12" sm="6" md="6">
+                <v-list>
+                  <v-list-item
+                    v-for="profile in profiles"
+                    :key="profile.content"
                   >
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-container>
+                    <v-list-item-content>
+                      <v-list-item-title
+                        ><v-icon>mdi-check</v-icon>
+                        {{ profile.content }}</v-list-item-title
+                      >
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-col>
+            </v-row>
+          </v-card>
+        </div>
+      </v-col>
+    </v-row>
+    <!-- </v-container> -->
   </div>
 </template>
 <script>

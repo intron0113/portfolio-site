@@ -106,15 +106,6 @@
                         </a>
                       </v-col>
                     </v-row>
-                    <v-card-actions class="justify-center">
-                      <v-btn
-                        color="success"
-                        class="ma-5"
-                        @click="selectedProduct = null"
-                      >
-                        close</v-btn
-                      >
-                    </v-card-actions>
                     <!-- <v-divider class="grey lighten-2 my-2"></v-divider> -->
                   </v-col>
                   <v-col cols="12" sm="6">
@@ -125,7 +116,17 @@
                       :src="item.src"
                     />
                   </v-col>
-                  <v-col cols="12"> </v-col>
+                  <v-col cols="12">
+                    <v-card-actions class="justify-center">
+                      <v-btn
+                        color="success"
+                        class="ma-5"
+                        @click="selectedProduct = null"
+                      >
+                        close</v-btn
+                      >
+                    </v-card-actions>
+                  </v-col>
                 </v-row>
               </v-card>
             </v-col>
@@ -179,8 +180,8 @@ export default {
         use: 'Nuxt.js firebase',
         text: 'このWebページです。Nuxt.jsを使用しSPAとして、1枚のランディングページに仕上げました。vuetifyの機能を使用しシンプルに見やすくを意識しました。contactformはfirebasse/functionを使用し実装しています。',
         useTec: 'Nuxt.js,vuetify,firebase/Functions,',
-        development: '30時間',
-        link: '',
+        development: '20時間',
+        link: 'https://sy-portfoliosite.netlify.app/',
         github: 'https://github.com/intron0113/portfolio-site',
         frame: '',
         db: '',
@@ -266,23 +267,23 @@ export default {
       }
       switch (bkPt.name) {
         case 'xl':
-          point.cardHeight = 450
+          point.cardHeight = 800
           point.cardWidth = 1080
           break
         case 'lg':
-          point.cardHeight = 400
+          point.cardHeight = 800
           point.cardWidth = 1080
           break
         case 'md':
-          point.cardHeight = 400
+          point.cardHeight = 800
           point.cardWidth = 860
           break
         case 'sm':
-          point.cardHeight = 400
+          point.cardHeight = 800
           point.cardWidth = 500
           break
         case 'xs':
-          point.cardHeight = 250
+          point.cardHeight = 600
           point.cardWidth = 300
           break
         default:
