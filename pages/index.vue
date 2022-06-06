@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <v-container> </v-container>
+  <!-- <div class="width"> -->
+  <v-app>
+    <!-- <v-container> -->
+    <!-- <v-row justify="center"> -->
+    <!-- <v-col cols="12"> -->
     <section id="top">
       <div class="topimage">
         <div class="topimage-back"></div>
@@ -16,6 +19,8 @@
         </div>
       </div>
     </section>
+    <!-- </v-col> -->
+    <!-- <v-col cols="12"> -->
     <section id="about">
       <v-col cols="12">
         <div class="inner">
@@ -30,12 +35,16 @@
         </div>
       </v-col>
     </section>
+    <!-- </v-col> -->
+    <!-- <v-col cols="12"> -->
     <section id="works">
       <v-col cols="12">
         <h2 class="headline font-weight-bold text-center my-16">WORKS</h2>
         <NewProduct />
       </v-col>
     </section>
+    <!-- </v-col> -->
+    <!-- <v-col cols="12"> -->
     <section id="skill">
       <v-row justify="center">
         <v-col cols="12" sm="12" md="7" lg="9">
@@ -48,20 +57,39 @@
         </v-col>
       </v-row>
     </section>
+    <!-- </v-col> -->
+    <!-- <v-col cols="12"> -->
     <section id="contact">
-      <v-col cols="12">
-        <div class="inner">
-          <div class="section-title-block">
-            <h2 class="headline font-weight-bold text-center my-16">CONTACT</h2>
-            <p class="section-desc text-center">
-              お問合わせは下記からご連絡をください。
-            </p>
-            <!-- <Contact /> -->
-          </div>
+      <!-- <v-col cols="12"> -->
+      <div class="inner">
+        <div class="section-title-block">
+          <h2 class="headline font-weight-bold text-center my-16">CONTACT</h2>
+          <!-- <p class="section-desc text-center">
+            お問合わせは下記からご連絡をください。
+          </p> -->
+          <v-row justify="center" class="my-6">
+            <v-col cols="3">
+              <v-btn
+                href=""
+                block
+                x-large
+                color="success"
+                nuxt-link
+                to="/contact"
+                dark
+                >お問合せ</v-btn
+              >
+            </v-col>
+          </v-row>
         </div>
-      </v-col>
+      </div>
+      <!-- </v-col> -->
     </section>
-  </div>
+    <!-- </v-col> -->
+    <!-- </v-row> -->
+    <!-- </v-container> -->
+  </v-app>
+  <!-- </div> -->
 </template>
 
 <script></script>
