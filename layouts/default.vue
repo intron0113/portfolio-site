@@ -24,9 +24,9 @@
           <v-col cols="12" class="d-none d-sm-block">
             <v-tabs centered class="tab">
               <v-tab
-                class="tab"
                 v-for="(item, index) in headerMenuitems"
                 :key="index"
+                class="tab"
                 @click="headerMenuItemsClick(item.href)"
               >
                 {{ item.text }}
@@ -62,7 +62,7 @@
       <nuxt />
     </v-main>
     <v-footer color="primary">
-      <v-containeer style="width: 100%">
+      <v-container style="width: 100%">
         <v-row justify="center">
           <v-col cols="12">
             <div class="white--text" style="text-align: center">
@@ -70,7 +70,7 @@
             </div>
           </v-col>
         </v-row>
-      </v-containeer>
+      </v-container>
     </v-footer>
     <!-- </v-sheet> -->
   </v-app>

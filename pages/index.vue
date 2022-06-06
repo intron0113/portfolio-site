@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-container> </v-container>
     <section id="top">
       <div class="topimage">
         <div class="topimage-back"></div>
@@ -36,16 +37,16 @@
       </v-col>
     </section>
     <section id="skill">
-      <div class="inner">
-        <div class="section-title-block">
-          <h2 class="headline font-weight-bold text-center my-16">SKILL</h2>
-        </div>
-        <v-row justify="center">
-          <v-col cols="12" sm="12" md="7" lg="9">
+      <v-row justify="center">
+        <v-col cols="12" sm="12" md="7" lg="9">
+          <div class="inner">
+            <div class="section-title-block">
+              <h2 class="headline font-weight-bold text-center my-16">SKILL</h2>
+            </div>
             <Skill />
-          </v-col>
-        </v-row>
-      </div>
+          </div>
+        </v-col>
+      </v-row>
     </section>
     <section id="contact">
       <v-col cols="12">
@@ -55,17 +56,7 @@
             <p class="section-desc text-center">
               お問合わせは下記からご連絡をください。
             </p>
-          </div>
-          <div class="contact-wrapper">
-            <div class="contact-list">
-              <v-row class="text-center">
-                <v-col>
-                  <v-btn href="" x-large color="success" dark
-                    >Extra large Button</v-btn
-                  >
-                </v-col>
-              </v-row>
-            </div>
+            <!-- <Contact /> -->
           </div>
         </div>
       </v-col>
@@ -73,12 +64,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  // name: 'Home',
-  // components: { ProductList },
-}
-</script>
+<script></script>
 <style>
 .topimage {
   width: 100%;

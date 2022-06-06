@@ -63,19 +63,49 @@
                     <v-card-text class="v-text">
                       {{ selectedProduct.useTec }}
                     </v-card-text>
+                    <v-card-subtitle class="text-h6">
+                      開発期間
+                    </v-card-subtitle>
+                    <v-card-text class="v-text">
+                      {{ selectedProduct.development }}
+                    </v-card-text>
                     <v-divider class="grey lighten-2 my-2"></v-divider>
-                    <v-col cols="3">
-                      <a :href="selectedProduct.github" style="color: inherit">
-                        <v-icon>mdi-github</v-icon>
-                        github
-                      </a>
-                    </v-col>
-                    <v-col cols="3">
-                      <a :href="selectedProduct.link" style="color: inherit">
-                        <v-icon>mdi-link-box-variant-outline</v-icon>
-                        siteLink
-                      </a>
-                    </v-col>
+                    <v-card-subtitle class="text-h6"> </v-card-subtitle>
+                    <v-row>
+                      <v-col cols="12">
+                        <a
+                          :href="selectedProduct.github"
+                          style="color: inherit"
+                        >
+                          <v-icon>mdi-github</v-icon>
+                          github
+                        </a>
+                      </v-col>
+                      <v-col cols="12">
+                        <a :href="selectedProduct.link" style="color: inherit">
+                          <v-icon>mdi-link-box-variant-outline</v-icon>
+                          siteLink
+                        </a>
+                      </v-col>
+                      <v-col v-if="selectedProduct.frame !== ''" cols="12">
+                        <a :href="selectedProduct.frame" style="color: inherit">
+                          <v-icon>mdi-application-parentheses-outline</v-icon>
+                          ワイヤーフレーム・画面遷移図
+                        </a>
+                      </v-col>
+                      <v-col v-if="selectedProduct.db !== ''" cols="12">
+                        <a :href="selectedProduct.db" style="color: inherit">
+                          <v-icon>mdi-database</v-icon>
+                          DB
+                        </a>
+                      </v-col>
+                      <v-col v-if="selectedProduct.er !== ''" cols="12">
+                        <a :href="selectedProduct.er" style="color: inherit">
+                          <v-icon>mdi-source-branch</v-icon>
+                          ER
+                        </a>
+                      </v-col>
+                    </v-row>
                     <v-card-actions class="justify-center">
                       <v-btn
                         color="success"
@@ -91,23 +121,9 @@
                     <v-img
                       v-for="(item, i) in selectedProduct.items"
                       :key="i"
-                      class="mt-4 mr-4"
+                      class="mt-4 mx-4 image-d"
                       :src="item.src"
-                      max-height="400"
                     />
-                    <!-- <v-carousel
-                      cycle
-                      hide-delimiters
-                      class="carousel-image pt-10 px-6"
-                    >
-                      <v-carousel-item
-                        v-for="(item, i) in selectedProduct.items"
-                        :key="i"
-                        :src="item.src"
-                        reverse-transition="fade-transition"
-                        transition="fade-transition"
-                      ></v-carousel-item>
-                    </v-carousel> -->
                   </v-col>
                   <v-col cols="12"> </v-col>
                 </v-row>
@@ -131,11 +147,15 @@ export default {
         product: 'Co-mpa',
         category: 'web app',
         use: 'Nuxt.js firebase',
-        text: '医療職に従事している際に、アウトプットの場がもっと身近にあればという悩みを抱えていました。解決策として、記事投稿サイトをきっかけにアウトプット学習を行えないかと考え記事投稿アプリを開発しました。ログイン機能、マークダウン記法による記事作成、タグ検索、全文検索機能を実装。今後もアップデートを行い、医療従事者のチーム医療の一端になれればと考えています。',
+        text: '医療職に従事している際に、アウトプットの場がもっと身近にあればという悩みを抱えていました。解決策として、記事投稿サイトをきっかけにアウトプット学習を行えないかと考え記事投稿アプリを開発しました。ログイン機能、マークダウン記法による記事作成、タグ検索、全文検索機能を実装。本格的にアプリ開発を始めて行い、DB設計、ワイヤーフレーム作成も行いました。開発を通してCRUD、ユーザー登録などの基礎的な考え方を学ぶことができ、アプリケーション開発の流れを学ぶ事ができました。今後もアップデートを行い、医療従事者のチーム医療の一端になれればと考えています。',
         useTec:
-          'Nuxt.js,firebase/Authentication,firebase/Database,firebase/Storage,firebase/Hosting,algolia(検索用)',
+          'Nuxt.js,vuetify,firebase/Authentication,firebase/Database,firebase/Storage,firebase/Hosting,algolia(検索用)',
+        development: '3ヶ月',
         link: 'https://compa-med.web.app/',
         github: 'https://github.com/intron0113/compa-web',
+        frame: 'https://overflow.io/s/98APJPR4?node=62ca7c5c',
+        db: 'https://docs.google.com/spreadsheets/d/1l1vmaS1n-Wi9eQiGgZyTJePAXTVOeSBd_XsbWaIajqM/edit#gid=0',
+        er: 'https://drive.google.com/file/d/1GuVbAFcmBnXY_tYudYg_ICtA5gQQ6Lt8/view?usp=sharing',
         items: [
           {
             src: require('@/assets/compa.jpg'),
@@ -157,6 +177,25 @@ export default {
         product: 'Portfolio Site',
         category: 'LP',
         use: 'Nuxt.js firebase',
+        text: 'このWebページです。Nuxt.jsを使用しSPAとして、1枚のランディングページに仕上げました。vuetifyの機能を使用しシンプルに見やすくを意識しました。contactformはfirebasse/functionを使用し実装しています。',
+        useTec: 'Nuxt.js,vuetify,firebase/Functions,',
+        development: '30時間',
+        link: '',
+        github: 'https://github.com/intron0113/portfolio-site',
+        frame: '',
+        db: '',
+        er: '',
+        items: [
+          {
+            src: require('@/assets/portfolio.jpg'),
+          },
+          {
+            src: require('@/assets/portfolio-works.jpg'),
+          },
+          {
+            src: require('@/assets/portfolio-skill.jpg'),
+          },
+        ],
       },
       {
         id: '3',
@@ -164,6 +203,25 @@ export default {
         product: 'Dino-score',
         category: 'web app',
         use: 'vue.js vuetify',
+        text: 'ログイン機能を持たせていない簡単なwebアプリです。甥からのスコア表が欲しいと依頼があり作成しました。点数を加点していくとランダムで画像が切り替わります。',
+        useTec: 'Vue.js,vuetify',
+        development: '10時間',
+        link: 'https://so-aki-dinoscore.netlify.app/',
+        github: 'https://github.com/intron0113/Score-bord-For-children-Vuetify',
+        frame: '',
+        db: '',
+        er: '',
+        items: [
+          {
+            src: require('@/assets/dinoscore.jpg'),
+          },
+          {
+            src: require('@/assets/dinoscore-2.jpg'),
+          },
+          {
+            src: require('@/assets/dinoscore-1.jpg'),
+          },
+        ],
       },
       {
         id: '4',
@@ -171,6 +229,25 @@ export default {
         product: 'umean-foods',
         category: 'LP',
         use: 'vue.js vuetify',
+        text: 'サイトリをニューアルしたいと知人の梅干屋から依頼があり、開発しました。依頼者から要望を聞き実際の機能を省略し見た目や操作性重視で開発しました。自社HPとECサイトを兼ねていたのでECのバックエンド部分は実装しませんでしたが、商品ページから買い物カゴに追加する機能をvuexを利用して実装しました。結果サイトリニューアルには至りませんでしたが、依頼を受け納品チェックを受けるという流れは体験できました。',
+        useTec: 'Vue.js,vuetify',
+        development: '40時間',
+        link: 'https://umean-foods-testsite.netlify.app/',
+        github: 'https://github.com/intron0113/Fictitious-store-Vuex.Vuerouter',
+        frame: '',
+        db: '',
+        er: '',
+        items: [
+          {
+            src: require('@/assets/umean.jpg'),
+          },
+          {
+            src: require('@/assets/umean-detail.jpg'),
+          },
+          {
+            src: require('@/assets/umean-cart.jpg'),
+          },
+        ],
       },
     ],
   }),
@@ -189,44 +266,24 @@ export default {
       }
       switch (bkPt.name) {
         case 'xl':
-          point.titleLength = 30
-          point.textLength = 100
           point.cardHeight = 450
           point.cardWidth = 1080
-          point.imagedHeight = 250
-          point.imageWidth = 300
           break
         case 'lg':
-          point.titleLength = 20
-          point.textLength = 80
           point.cardHeight = 400
           point.cardWidth = 1080
-          point.imagedHeight = 250
-          point.imageWidth = 300
           break
         case 'md':
-          point.titleLength = 10
-          point.textLength = 60
           point.cardHeight = 400
           point.cardWidth = 860
-          point.imagedHeight = 250
-          point.imageWidth = 300
           break
         case 'sm':
-          point.titleLength = 10
-          point.textLength = 100
           point.cardHeight = 400
           point.cardWidth = 500
-          point.imagedHeight = 250
-          point.imageWidth = 300
           break
         case 'xs':
-          point.titleLength = 8
-          point.textLength = 100
           point.cardHeight = 250
           point.cardWidth = 300
-          point.imagedHeight = 250
-          point.imageWidth = 300
           break
         default:
           break
@@ -237,29 +294,12 @@ export default {
 }
 </script>
 <style lang="scss">
-.icon-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 32px;
-  min-width: 32px;
-  height: 32px;
-  overflow: hidden;
-  margin-right: 10px;
-
-  > .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
 .always-show-scrollbar {
   overflow-y: scroll !important;
 }
-.carousel-image {
+.image-d {
   max-width: 100%;
-  height: auto;
+  max-height: 400px;
   text-align: center;
 }
 .v-text {
