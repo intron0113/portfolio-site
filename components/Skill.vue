@@ -54,11 +54,11 @@ export default {
       ],
       back: [
         { icon: 'mdi-nodejs', text: 'Node.js' },
-        { icon: 'mdi-docker', text: 'Docker' },
+        // { icon: 'mdi-docker', text: 'Docker' },
         { icon: 'mdi-github', text: 'git/github' },
         { icon: 'mdi-firebase', text: 'firebase' },
         { icon: 'mdi-slack', text: 'slack' },
-        { icon: 'mdi-language-ruby-on-rails', text: 'Ruby on Rails' },
+        // { icon: 'mdi-language-ruby-on-rails', text: 'Ruby on Rails' },
       ],
     }
   },

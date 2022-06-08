@@ -154,9 +154,12 @@ export default {
         development: '3ヶ月',
         link: 'https://compa-med.web.app/',
         github: 'https://github.com/intron0113/compa-web',
-        frame: 'https://overflow.io/s/98APJPR4?node=62ca7c5c',
-        db: 'https://docs.google.com/spreadsheets/d/1l1vmaS1n-Wi9eQiGgZyTJePAXTVOeSBd_XsbWaIajqM/edit#gid=0',
-        er: 'https://drive.google.com/file/d/1GuVbAFcmBnXY_tYudYg_ICtA5gQQ6Lt8/view?usp=sharing',
+        // frame: 'https://overflow.io/s/98APJPR4?node=62ca7c5c',
+        // db: 'https://docs.google.com/spreadsheets/d/1l1vmaS1n-Wi9eQiGgZyTJePAXTVOeSBd_XsbWaIajqM/edit#gid=0',
+        // er: 'https://drive.google.com/file/d/1GuVbAFcmBnXY_tYudYg_ICtA5gQQ6Lt8/view?usp=sharing',
+        frame: '',
+        db: '',
+        er: '',
         items: [
           {
             src: require('@/assets/compa.jpg'),
