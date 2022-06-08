@@ -22,7 +22,7 @@
                       style="width: 120px; height: 120px"
                     >
                       <img
-                        src="~/assets/topimage1.jpg"
+                        src="~/assets/sy-photo.jpg"
                         alt="PROFILE"
                         style="object-fit: cover"
                         class="image"
