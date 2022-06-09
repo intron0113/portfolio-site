@@ -87,6 +87,15 @@
                           siteLink
                         </a>
                       </v-col>
+                      <v-col v-if="selectedProduct.functional !== ''" cols="12">
+                        <a
+                          :href="selectedProduct.functional"
+                          style="color: inherit"
+                        >
+                          <v-icon>mdi-account-hard-hat-outline</v-icon>
+                          機能要件
+                        </a>
+                      </v-col>
                       <v-col v-if="selectedProduct.frame !== ''" cols="12">
                         <a :href="selectedProduct.frame" style="color: inherit">
                           <v-icon>mdi-application-parentheses-outline</v-icon>
@@ -96,13 +105,13 @@
                       <v-col v-if="selectedProduct.db !== ''" cols="12">
                         <a :href="selectedProduct.db" style="color: inherit">
                           <v-icon>mdi-database</v-icon>
-                          DB
+                          DB設計
                         </a>
                       </v-col>
                       <v-col v-if="selectedProduct.er !== ''" cols="12">
                         <a :href="selectedProduct.er" style="color: inherit">
                           <v-icon>mdi-source-branch</v-icon>
-                          ER
+                          ER図
                         </a>
                       </v-col>
                     </v-row>
@@ -154,12 +163,12 @@ export default {
         development: '3ヶ月',
         link: 'https://compa-med.web.app/',
         github: 'https://github.com/intron0113/compa-web',
-        // frame: 'https://overflow.io/s/98APJPR4?node=62ca7c5c',
-        // db: 'https://docs.google.com/spreadsheets/d/1l1vmaS1n-Wi9eQiGgZyTJePAXTVOeSBd_XsbWaIajqM/edit#gid=0',
-        // er: 'https://drive.google.com/file/d/1GuVbAFcmBnXY_tYudYg_ICtA5gQQ6Lt8/view?usp=sharing',
-        frame: '',
-        db: '',
-        er: '',
+        functional:
+          'https://docs.google.com/spreadsheets/d/1nVfNGKvBEuDLp_nFPMcMsSIlQnsCOK_ji_I2XJjW0vA/edit?usp=sharing',
+        frame: 'https://overflow.io/s/PQL6U0WG',
+        db: 'https://docs.google.com/spreadsheets/d/19mFqN7jDnw772ENk-x5DAcKX3AjQbEdEXTS6nqqAOkM/edit?usp=sharing',
+        er: 'https://drive.google.com/file/d/1H7knFhscUmvcOroE0JBjC3FHyWL2ZEGJ/view',
+
         items: [
           {
             src: require('@/assets/compa.jpg'),
@@ -186,6 +195,7 @@ export default {
         development: '20時間',
         link: 'https://sy-portfoliosite.netlify.app/',
         github: 'https://github.com/intron0113/portfolio-site',
+        functional: '',
         frame: '',
         db: '',
         er: '',
@@ -212,6 +222,7 @@ export default {
         development: '10時間',
         link: 'https://so-aki-dinoscore.netlify.app/',
         github: 'https://github.com/intron0113/Score-bord-For-children-Vuetify',
+        functional: '',
         frame: '',
         db: '',
         er: '',
@@ -238,6 +249,7 @@ export default {
         development: '40時間',
         link: 'https://umean-foods-testsite.netlify.app/',
         github: 'https://github.com/intron0113/Fictitious-store-Vuex.Vuerouter',
+        functional: '',
         frame: '',
         db: '',
         er: '',
